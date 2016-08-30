@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+
+#foodllc-navbar{
+	background-color: #f2f2f2;
+}
+
+.fllc-nav-border{
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e7e7e7;
+}
+
+.mainHeading{
+	font-size: 1.6em;
+	font-weight: bold;
+}
+
+.subHeading{
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.sectionContent{
+	background-color: #e7e7e7;
+}
+
+.row{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.navbar-header{
+	padding-left: 15px;
+}

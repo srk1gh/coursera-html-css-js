@@ -1,4 +1,14 @@
-<div class='container-fluid'>
+<div class='container-fluid' style="border=1px">
+<div class='row' ng-repeat='item in items'>
+  <div class='col-xs-6 col-sm-3'>Name</div>
+  <div class='col-xs-6 col-sm-3'>Short Name</div>
+
+  <!-- Add the extra clearfix for only the required viewport -->
+  <div class='clearfix visible-xs-block'></div>
+
+  <div class='col-xs-6 col-sm-3'>escription</div>
+  <div class='col-xs-6 col-sm-3'>Remove </div>
+</div>
 <div class='row' ng-repeat='item in items'>
   <div class='col-xs-6 col-sm-3'>{{ item.name }}</div>
   <div class='col-xs-6 col-sm-3'>{{ item.short_name }}</div>

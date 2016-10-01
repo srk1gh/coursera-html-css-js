@@ -9,20 +9,15 @@ angular.module('NarrowItDownAppp', [])
 
 function FoundItemsDirective(){
   var ddo = {
-    //templateUrl: "file://C:/Users/J1010272/Personal/coursera/Single Page Web Applications with AngularJS/Week3-Assignment/foundItems.html",
-    //templateUrl: "foundItems.html",
-    template: "<div class='container-fluid'> <div class='row' ng-repeat='item in items'>   <div class='col-xs-6 col-sm-3'>{{ item.name }}</div>   <div class='col-xs-6 col-sm-3'>{{ item.short_name }}</div>    <div class='clearfix visible-xs-block'></div>  <div class='col-xs-6 col-sm-3'>{{ item.description }}</div>  <div class='col-xs-6 col-sm-3'>   <button ng-click='onRemove({index: $index});'>Remove Item</button>   </div> </div> </div>",
+    templateUrl: "foundItems.html",
+    //template: "<div class='container-fluid'> <div class='row' ng-repeat='item in items'>   <div class='col-xs-6 col-sm-3'>{{ item.name }}</div>   <div class='col-xs-6 col-sm-3'>{{ item.short_name }}</div>    <div class='clearfix visible-xs-block'></div>  <div class='col-xs-6 col-sm-3'>{{ item.description }}</div>  <div class='col-xs-6 col-sm-3'>   <button ng-click='onRemove({index: $index});'>Remove Item</button>   </div> </div> </div>",
     scope: {
       items: '<',
-      //items: '=',
       onRemove: '&'
-    }  };
+    }  
+  };
 
   return ddo;
-};
-
-function FoundItemsDirectiveController() {
-
 };
 
 NarrowItDownController.$inject = ['MenuSearchService'];

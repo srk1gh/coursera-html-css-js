@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app='MenuApp'>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Week 4 Assignment</title>
+  </head>
+  <body>
+   <h1>Restaurant Categories Menu Application</h1>
+
+    <ui-view></ui-view>
+
+    <!-- Libraries -->
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+
+    <!-- Modules -->
+    <script src="src/menuapp.module.js"></script>
+    <script src="src/data.module.js"></script>
+ 
+
+    <!-- 'ManuApp' module artifacts -->
+    <script src="src/categories.component.js"></script>
+    <script src="src/items.component.js"></script>
+    <script src="src/menudata.service.js"></script>
+
+    <!-- Routes -->
+    <script src="src/routes.js"></script>
+  </body>
+</html>

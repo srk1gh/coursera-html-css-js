@@ -3,7 +3,7 @@
 
 angular.module('public')
 .component('userMenuItem', {
-  templateUrl: 'src/public/myinfo/user-menu-item.html',
+  templateUrl: 'src/public/myInfo/user-menu-item.html',
   bindings: {
     menuItem: '<'
   },

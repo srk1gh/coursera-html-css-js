@@ -6,7 +6,7 @@ angular.module('public')
   bindings: {
     info: '<'
   },
-  templateUrl: 'src/public/myInfo/userInfo.html'
+  templateUrl: 'src/public/myInfo/userInfo.html' 
 });
 
 })();

@@ -1,0 +1,41 @@
+<div ng-if="myInfoCtrl.myinfo.firstname" class="container">
+      <table class="table table-sm">
+          <tr >
+            <td col-md-2 col-xs-1>First Name </td>
+            <td col-md-4 col-xs-4>{{myInfoCtrl.myinfo.firstname}}</td>
+          </tr>
+          <tr >
+            <td col-md-2 col-xs-1>Last Name </td>
+            <td col-md-4 col-xs-4>{{myInfoCtrl.myinfo.lastname}}</td>
+          </tr>
+          <tr >
+            <td col-md-2 col-xs-1>Email Address</td>
+            <td col-md-4 col-xs-4>{{myInfoCtrl.myinfo.emailaddress}}</td>
+          </tr>
+          <tr >
+            <td col-md-2 col-xs-1>Phone Number</td>
+            <td col-md-4 col-xs-4>{{myInfoCtrl.myinfo.phone}}</td>
+          </tr>
+          <tr >
+            <td col-md-2 col-xs-1>Fevorite Dish</td>
+            <td col-md-4 col-xs-4>
+              <div class="container">
+                <div class="row">
+                  <h2>{{myInfoCtrl.myinfo.selectedMenu.name}}</h2>
+                </div>
+                <div class="row">
+                  <h3>{{myInfoCtrl.myinfo.selectedMenu.description}}</h3>
+                </div>
+                <div class="row">
+                  <img width="250" height="150" ng-src="{{myInfoCtrl.apipath}}/images/{{myInfoCtrl.myinfo.selectedMenu.short_name}}.jpg" alt="{{myInfoCtrl.myinfo.selectedMenu.short_name}}">
+                </div>
+              </div>
+            </td>
+          </tr>
+      </table>
+</div>
+<div ng-if="!myInfoCtrl.myinfo.firstname" class="container">
+  Not Signed Up Yet.<a ui-sref="public.signup">Sign up Now!</a>
+</div>
+<ui-view>
+</ui-view>

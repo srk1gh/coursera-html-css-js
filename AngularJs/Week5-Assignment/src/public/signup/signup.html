@@ -1,71 +1,73 @@
-<fieldset>
-    <h2 id="menu-categories-title" class="text-center">Sign Up</h2>
-	<div class="text-center">
-		<p>Sign up for our newsletter, filling in the form below in order to receive special offers!!
-	</div>
+<div ng-show="!signupForm.$submitted || signupForm.$invalid">
+  <h1 class="text-center">Sign up for the newsletter</h1>
+  <div>
+  <blockquote>Enter your information for news letter</blockquote>
+  <form name='signupForm' class="form-group" novalidate>
 
-    <form name="signUpForm" novalidate >
-	<div class="container">
-	  <div class="row">
-	    <div class="col-md-6 col-sm-12">
-			<input type="text" name="firstName" placeholder="First Name" class="form-control"
-                ng-model="signupCtrl.userInfo.firstName"
-                required>
+    <div class="form-group">
+      <label>First Name</label>
+      <input class="form-control" type="text"  name="firstname"
+             ng-model="signupCtrl.user.firstname"
+             placeholder="Enter your First Name"
+             required autofocus />
+      <span
+        ng-if="signupForm.firstname.$error.required && signupForm.firstname.$touched">
+        First Name is required
+      </span>
+    </div>
 
-            <span ng-class="error" ng-if="signUpForm.firstName.$error.required
-                                          && signUpForm.firstName.$touched">
-                First name is required
-            </span>
-		</div>
-		<div class="col-md-6 col-sm-12">
-			<input type="text" name="lastName" required placeholder="Last Name" class="form-control"
-                ng-model="signupCtrl.userInfo.lastName" required >
-            <span ng-class="error" ng-if="signUpForm.lastName.$error.required
-                                          && signUpForm.lastName.$touched">
-                Last name is required
-            </span>
-		</div>
-		<br>
-		<div class="col-md-6 col-sm-12">
-			<input type="email" name="email" required placeholder="Email" class="form-control"
-                ng-model="signupCtrl.userInfo.emailAddress"
-                required>
-            <span ng-class="error" ng-if="(signUpForm.email.$error.required
-                                          || signUpForm.email.$invalid)
-                                          && signUpForm.email.$touched">
-                Must be a valid email address: handle@domain format
-            </span>
-		</div>
-		<div class="col-md-6 col-sm-12">
-			<input type="text" name="phone" required placeholder="Phone ###-###-####" class="form-control"
-                ng-model="signupCtrl.userInfo.phoneNumber"
-                pattern="(\d{3})-(\d{3})-(\d{4})">
-            <span ng-class="error" ng-if="(signUpForm.phone.$error.required
-                                          || signUpForm.phone.$invalid)
-                                          && signUpForm.phone.$touched">
-                Phone must be in the format ###-###-####.
-            </span>
-		</div>
-		<br>
-		<div class="col-md-6 col-sm-12">
-			<input type="text" name="menuItem" placeholder="Pick you favourite menu" class="form-control"
-                ng-model="signupCtrl.userInfo.menuItem"
-                ng-blur="signupCtrl.checkMenuItem()" required>
-            <span ng-class="error" ng-if="(signUpForm.menuItem.$error.required
-                                            && signUpForm.menuItem.$touched)
-                                            || signupCtrl.invalidMenuItem">
-              No such menu number exists
-            </span>
-		</div>
-		<br>
-		<div class="col-xs-12 text-center">
-			<button class="btn btn-success btn-lg" ng-click="signupCtrl.signUpUser();"
-              ng-disabled="signUpForm.$invalid || signupCtrl.invalidMenuItem">Sign Up!</button>
-		</div>
-	  </div>
-	</div>
-      <div>
-        <span ng-if="signupCtrl.showMessage">Your information has been saved</span>
-      </div>
-    </form>
-</fieldset>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input class="form-control" type="text" name="lastname"
+             ng-model="signupCtrl.user.lastname"
+             required placeholder="Enter your Last Name"
+             required />
+      <span
+        ng-if="signupForm.lastname.$error.required && signupForm.lastname.$touched">
+        Last Name is required
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>Email Address</label>
+      <input class="form-control" type="email" name="emailaddress"
+             ng-model="signupCtrl.user.emailaddress"
+             placeholder="Enter your Email Address"
+             required />
+      <span ng-if="(signupForm.emailaddress.$error.required || signupForm.emailaddress.$invalid) && signupForm.emailaddress.$touched">
+        Must be a valid email address: user@domain format
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input class="form-control" type="text" name="phone" placeholder="Phone ###-###-####"
+             ng-model="signupCtrl.user.phone"
+             pattern="(\d{3})-(\d{3})-(\d{4})" required>
+      <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+        Phone must be in the format ###-###-####.
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>Favorite Dish</label>
+      <input class="form-control" type="text"
+            placeholder="Enter favorite dish short name"
+              ng-model="signupCtrl.user.selectedMenu.short_name"
+              ng-model-options="{ 'updateOn': 'blur'}"
+              name="favoritedish"  required menu-item-validator/>
+
+      <span ng-show="signupForm.favoritedish.$pending.menuItemValidator">Checking if this menu number exists...</span>
+      <span ng-show="signupForm.favoritedish.$error.menuItemValidator">No such menu number exists</span>
+
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary" ng-click="signupCtrl.signup()" ng-disabled="signupForm.$invalid || signupForm.$pending ">Sign Up</button>
+    </div>
+   </form>
+  </div>
+</div>
+<div ng-show="signupForm.$submitted && signupForm.$valid">
+  Your information has been saved
+</div>
